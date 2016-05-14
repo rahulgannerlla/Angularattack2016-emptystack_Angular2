@@ -11,8 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var materialDesignLite_1 = require('./materialDesignLite');
-var items_component_1 = require('app/items/items.component');
-var search_history_component_1 = require('app/search_history/search_history.component');
 var Header = (function () {
     function Header() {
     }
@@ -30,14 +28,14 @@ var Header = (function () {
             {
                 path: '/items',
                 name: 'Items',
-                component: items_component_1.ItemsComponent,
+                component: ItemsComponent,
                 useAsDefault: true
             },
             // },
             {
                 path: '/search',
                 name: 'Search',
-                component: search_history_component_1.SearchHistoryComponent
+                component: SearchHistoryComponent
             }
         ]), 
         __metadata('design:paramtypes', [])

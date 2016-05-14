@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 import {MDL} from './materialDesignLite';
-import { ItemsComponent } from 'app/items/items.component';
-import { SearchHistoryComponent } from 'app/search_history/search_history.component';
+
 
 @Component({
 	selector: 'header',
