@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
 	selector:'search-history',
-	templateUrl:'app/search_history/views/search_history.tmpl.html'
+	templateUrl:'app/search_history/views/search_history.tmpl.html',
+	styleUrls: ['app/search_history/styles/search_history.css']
 })
 
 export class SearchHistoryComponent {
@@ -79,6 +80,87 @@ export class SearchHistoryComponent {
 			var hash = {};
 			var uniqueCount = 0;
 			var repeatedCount = 0;
+
+			for (var i = 0; i < parsedJson.length; i++) {
+				for (var j = 0; j < parsedJson[i].event.length; j++) {
+					var queryString = parsedJson[i].event[j].query["query_text"];
+					//console.log(queryString);
+					//check special characters
+					if (/^[a-zA-Z0-9- ]*$/.test(queryString) == true) {
+						var queryArray = queryString.split(' ');
+						for (var k = 0; k < queryArray.length; k++) {
+							repeatedCount = repeatedCount + 1;
+							var lowercase = queryArray[k].toLowerCase();
+
+							//check stop words
+							if (typeof stopwordsHash[lowercase] == 'undefined') {
+								//check if the word exists and increase the count
+								if (typeof hash[lowercase] == 'undefined') {
+									hash[queryArray[k]] = 1;
+									uniqueCount = uniqueCount + 1;
+								}
+								else
+									hash[queryArray[k]] = hash[queryArray[k]] + 1;
+							}
+						}
+					}
+				}
+			}
+			console.log("repeated count - " + repeatedCount);
+			console.log("unique count - " + uniqueCount);
+			console.log("Highest Frequency: ");
+
+			//sorting code from stackoverflow (Copyrights: Nosredna)
+			var sortable = [];
+			for (var vehicle in hash)
+				sortable.push([vehicle, hash[vehicle]])
+			sortable.sort(function(a, b) { return a[1] - b[1] })
+			for (var i = sortable.length - 1; i >= 0; i--) {
+				if (i > sortable.length - 75)
+					console.log(sortable[i])
+				else
+					break;
+			} for (var i = 0; i < parsedJson.length; i++) {
+				for (var j = 0; j < parsedJson[i].event.length; j++) {
+					var queryString = parsedJson[i].event[j].query["query_text"];
+					//console.log(queryString);
+					//check special characters
+					if (/^[a-zA-Z0-9- ]*$/.test(queryString) == true) {
+						var queryArray = queryString.split(' ');
+						for (var k = 0; k < queryArray.length; k++) {
+							repeatedCount = repeatedCount + 1;
+							var lowercase = queryArray[k].toLowerCase();
+
+							//check stop words
+							if (typeof stopwordsHash[lowercase] == 'undefined') {
+								//check if the word exists and increase the count
+								if (typeof hash[lowercase] == 'undefined') {
+									hash[queryArray[k]] = 1;
+									uniqueCount = uniqueCount + 1;
+								}
+								else
+									hash[queryArray[k]] = hash[queryArray[k]] + 1;
+							}
+						}
+					}
+				}
+			}
+			console.log("repeated count - " + repeatedCount);
+			console.log("unique count - " + uniqueCount);
+			console.log("Highest Frequency: ");
+
+			//sorting code from stackoverflow (Copyrights: Nosredna)
+			var sortable = [];
+			for (var vehicle in hash)
+				sortable.push([vehicle, hash[vehicle]])
+			sortable.sort(function(a, b) { return a[1] - b[1] })
+			for (var i = sortable.length - 1; i >= 0; i--) {
+				if (i > sortable.length - 75)
+					console.log(sortable[i])
+				else
+					break;
+			}
+			
 		}
 		catch (e) {
 			this.errormessage = "Error parsing JSON file";
