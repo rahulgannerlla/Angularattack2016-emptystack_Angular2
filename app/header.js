@@ -9,19 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var header_1 = require('./header');
-var AppComponent = (function () {
-    function AppComponent() {
+var materialDesignLite_1 = require('./materialDesignLite');
+var Header = (function () {
+    function Header() {
     }
-    AppComponent = __decorate([
+    Header = __decorate([
         core_1.Component({
-            selector: 'emptystack-app',
-            template: "\n\t<header></header>\n\t<h3> Empty Stack app</h3>",
-            directives: [header_1.Header]
+            selector: 'header',
+            directives: [materialDesignLite_1.MDL],
+            template: "\n\t\t<header mdl class=\"mdl-layout__header\">\n\t      <div class=\"mdl-layout__header-row\">\n\t          <span class=\"mdl-layout-title\">Home</span>\n\t      \n\t  \n\t          <div class=\"mdl-layout-spacer\"></div>\n\t      </div>\n\t  </header>\n\t"
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], Header);
+    return Header;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.Header = Header;
+//# sourceMappingURL=header.js.map

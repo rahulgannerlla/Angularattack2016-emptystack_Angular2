@@ -9,19 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var header_1 = require('./header');
-var AppComponent = (function () {
-    function AppComponent() {
+var MDL = (function () {
+    function MDL() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'emptystack-app',
-            template: "\n\t<header></header>\n\t<h3> Empty Stack app</h3>",
-            directives: [header_1.Header]
+    MDL.prototype.ngAfterViewInit = function () {
+        componentHandler.upgradeAllRegistered();
+    };
+    MDL = __decorate([
+        core_1.Directive({
+            selector: '[mdl]'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], MDL);
+    return MDL;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.MDL = MDL;
+//# sourceMappingURL=materialDesignLite.js.map
