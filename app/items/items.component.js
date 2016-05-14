@@ -9,13 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
 var ItemsComponent = (function () {
     function ItemsComponent() {
+        this.imageUrl = 'http://lorempixel.com/400/200/sports/1';
     }
     ItemsComponent = __decorate([
         core_1.Component({
             selector: 'items-list',
-            template: '<p>My items</p>'
+            templateUrl: 'app/items/views/items.tmpl.html',
+            directives: [common_1.NgStyle],
+            styleUrls: ['app/items/styles/items.style.css']
         }), 
         __metadata('design:paramtypes', [])
     ], ItemsComponent);
