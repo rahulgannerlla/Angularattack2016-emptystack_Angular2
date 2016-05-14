@@ -9,16 +9,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_deprecated_1 = require('@angular/router-deprecated');
 var materialDesignLite_1 = require('./materialDesignLite');
+var items_component_1 = require('app/items/items.component');
+var search_history_component_1 = require('app/search_history/search_history.component');
 var Header = (function () {
     function Header() {
     }
     Header = __decorate([
         core_1.Component({
             selector: 'header',
-            directives: [materialDesignLite_1.MDL],
-            template: "\n\t\t<header mdl class=\"mdl-layout__header\">\n\t      <div class=\"mdl-layout__header-row\">\n\t          <span class=\"mdl-layout-title\">Empty Stack App</span>\n\t      \n\t  \n\t          <div class=\"mdl-layout-spacer\"></div>\n\t      </div>\n\t  </header>\n\t"
-        }), 
+            directives: [materialDesignLite_1.MDL, router_deprecated_1.ROUTER_DIRECTIVES],
+            templateUrl: 'app/material_design_lite/views/header.tmpl.html',
+            providers: [
+                router_deprecated_1.ROUTER_PROVIDERS
+            ],
+            styleUrls: ['app/material_design_lite/styles/header_style.css']
+        }),
+        router_deprecated_1.RouteConfig([
+            {
+                path: '/items',
+                name: 'Items',
+                component: items_component_1.ItemsComponent,
+                useAsDefault: true
+            },
+            // },
+            {
+                path: '/search',
+                name: 'Search',
+                component: search_history_component_1.SearchHistoryComponent
+            }
+        ]), 
         __metadata('design:paramtypes', [])
     ], Header);
     return Header;

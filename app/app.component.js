@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
-var header_1 = require('./material_design_lite/header');
+// import { Header } from './material_design_lite/header';
 var items_component_1 = require('./items/items.component');
 var search_history_component_1 = require('./search_history/search_history.component');
 var AppComponent = (function () {
@@ -20,7 +20,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'emptystack-app',
             templateUrl: 'app/views/app.view.html',
-            directives: [header_1.Header, router_deprecated_1.ROUTER_DIRECTIVES],
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
             providers: [
                 router_deprecated_1.ROUTER_PROVIDERS
             ]
@@ -32,7 +32,6 @@ var AppComponent = (function () {
                 component: items_component_1.ItemsComponent,
                 useAsDefault: true
             },
-            // },
             {
                 path: '/search',
                 name: 'Search',
