@@ -11,7 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var SearchHistoryComponent = (function () {
     function SearchHistoryComponent() {
+        this.termsCheck = false;
+        this.freqArray = [];
     }
+    SearchHistoryComponent.prototype.agreeTerms = function () {
+        this.termsCheck = true;
+    };
+    SearchHistoryComponent.prototype.openFileSystem = function () {
+        setTimeout(function () {
+            document.getElementById('filetype').click();
+        }, 0);
+    };
     SearchHistoryComponent.prototype.changeListener = function ($event) {
         this.readThis($event.target);
     };
@@ -81,7 +91,6 @@ var SearchHistoryComponent = (function () {
             for (var i = 0; i < parsedJson.length; i++) {
                 for (var j = 0; j < parsedJson[i].event.length; j++) {
                     var queryString = parsedJson[i].event[j].query["query_text"];
-                    //console.log(queryString);
                     //check special characters
                     if (/^[a-zA-Z0-9- ]*$/.test(queryString) == true) {
                         var queryArray = queryString.split(' ');
@@ -102,58 +111,26 @@ var SearchHistoryComponent = (function () {
                     }
                 }
             }
-            console.log("repeated count - " + repeatedCount);
-            console.log("unique count - " + uniqueCount);
-            console.log("Highest Frequency: ");
+            // console.log("repeated count - " + repeatedCount);
+            // console.log("unique count - " + uniqueCount);
+            // console.log("Highest Frequency: ");
             //sorting code from stackoverflow (Copyrights: Nosredna)
             var sortable = [];
             for (var vehicle in hash)
                 sortable.push([vehicle, hash[vehicle]]);
             sortable.sort(function (a, b) { return a[1] - b[1]; });
             for (var i = sortable.length - 1; i >= 0; i--) {
-                if (i > sortable.length - 75)
-                    console.log(sortable[i]);
-                else
-                    break;
-            }
-            for (var i = 0; i < parsedJson.length; i++) {
-                for (var j = 0; j < parsedJson[i].event.length; j++) {
-                    var queryString = parsedJson[i].event[j].query["query_text"];
-                    //console.log(queryString);
-                    //check special characters
-                    if (/^[a-zA-Z0-9- ]*$/.test(queryString) == true) {
-                        var queryArray = queryString.split(' ');
-                        for (var k = 0; k < queryArray.length; k++) {
-                            repeatedCount = repeatedCount + 1;
-                            var lowercase = queryArray[k].toLowerCase();
-                            //check stop words
-                            if (typeof stopwordsHash[lowercase] == 'undefined') {
-                                //check if the word exists and increase the count
-                                if (typeof hash[lowercase] == 'undefined') {
-                                    hash[queryArray[k]] = 1;
-                                    uniqueCount = uniqueCount + 1;
-                                }
-                                else
-                                    hash[queryArray[k]] = hash[queryArray[k]] + 1;
-                            }
-                        }
+                if (sortable.length - 75 > 0) {
+                    if (i >= sortable.length - 75) {
+                        this.freqArray.push(sortable[i]);
                     }
+                    else
+                        break;
                 }
-            }
-            console.log("repeated count - " + repeatedCount);
-            console.log("unique count - " + uniqueCount);
-            console.log("Highest Frequency: ");
-            //sorting code from stackoverflow (Copyrights: Nosredna)
-            var sortable = [];
-            for (var vehicle in hash)
-                sortable.push([vehicle, hash[vehicle]]);
-            sortable.sort(function (a, b) { return a[1] - b[1]; });
-            for (var i = sortable.length - 1; i >= 0; i--) {
-                if (i > sortable.length - 75)
-                    console.log(sortable[i]);
                 else
-                    break;
+                    this.freqArray.push(sortable[i]);
             }
+            console.log(this.freqArray);
         }
         catch (e) {
             this.errormessage = "Error parsing JSON file";

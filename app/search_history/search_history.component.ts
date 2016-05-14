@@ -8,6 +8,19 @@ import { Component } from '@angular/core';
 
 export class SearchHistoryComponent {
 	public errormessage;
+	public termsCheck = false;
+	public freqArray = [];
+
+	agreeTerms():void{
+		this.termsCheck = true;
+	}
+
+	openFileSystem():void{
+		setTimeout(function() {
+			document.getElementById('filetype').click()
+		}, 0);
+
+	}
 
 	changeListener($event): void {
 		this.readThis($event.target);
@@ -84,7 +97,7 @@ export class SearchHistoryComponent {
 			for (var i = 0; i < parsedJson.length; i++) {
 				for (var j = 0; j < parsedJson[i].event.length; j++) {
 					var queryString = parsedJson[i].event[j].query["query_text"];
-					//console.log(queryString);
+		
 					//check special characters
 					if (/^[a-zA-Z0-9- ]*$/.test(queryString) == true) {
 						var queryArray = queryString.split(' ');
@@ -106,9 +119,9 @@ export class SearchHistoryComponent {
 					}
 				}
 			}
-			console.log("repeated count - " + repeatedCount);
-			console.log("unique count - " + uniqueCount);
-			console.log("Highest Frequency: ");
+			// console.log("repeated count - " + repeatedCount);
+			// console.log("unique count - " + uniqueCount);
+			// console.log("Highest Frequency: ");
 
 			//sorting code from stackoverflow (Copyrights: Nosredna)
 			var sortable = [];
@@ -116,12 +129,19 @@ export class SearchHistoryComponent {
 				sortable.push([vehicle, hash[vehicle]])
 			sortable.sort(function(a, b) { return a[1] - b[1] })
 			for (var i = sortable.length - 1; i >= 0; i--) {
-				if (i > sortable.length - 75)
-					console.log(sortable[i])
-				else
-					break;
+				if (sortable.length - 75 > 0){
+					if (i >= sortable.length - 75) {
+						this.freqArray.push(sortable[i]);
+					}
+					else
+						break;
+				}else
+					this.freqArray.push(sortable[i]);
+				
 			}
-			
+
+			console.log(this.freqArray);
+
 		}
 		catch (e) {
 			this.errormessage = "Error parsing JSON file";
