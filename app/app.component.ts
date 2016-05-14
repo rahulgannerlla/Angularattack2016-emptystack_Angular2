@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Header } from './header';
+import { Header } from './material_design_lite/header';
 @Component({
 	selector: 'emptystack-app',
 	template: `
