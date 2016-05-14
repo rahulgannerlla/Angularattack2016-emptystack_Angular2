@@ -1,0 +1,63 @@
+<div>
+	<h1 class="h1">Most frequent word in your Google Search</h1>
+	<div class="terms" >
+		<h2>Terms & Conditions</h2> 
+		<div>
+			<ol>
+				<li>By any means, Data fetched from Google is not saved locally and in server.</li>
+				<li>Empty Stack group is not involved in any distribution of your personal data. </li>
+				<li>xyz </li>
+			</ol>
+		</div>
+		<input class="agree" type="checkbox" id="termsCheckbox" value="isChecked">I agree
+	</div>
+	<div>
+		<div class="chart">
+			<h2>Tag Cloud</h2> 
+			<input type="file" (change)="changeListener($event)" multiple />
+		</div>	
+		<div class="instructions">
+			<h2>Instructions</h2> 
+			
+		</div>
+	</div>
+	<div [hidden]=true id="mycontent"></div>
+	<button (click)="LoadWordCloud()">Load Word Cloud</button>
+		{{errormessage}}
+	
+<style>
+
+
+	.h1{
+		text-align: center;
+	}
+	.terms{
+		margin: 40px;
+		border-style: solid;
+		border-radius: 5px;
+		border-color: black;
+		border-width: 1px;
+		align:center;
+	}
+	.chart{
+		width: 74%;
+		float: left;
+		border-radius: 5px;
+		border-style: solid;
+		border-color: black;
+		border-width: 1px;
+	}
+	.instructions{
+		width: 24%;
+		float: left;
+		border-style: solid;
+		border-radius: 5px;
+		border-color: black;
+		border-width: 1px;
+	}
+	.agree{
+
+	}
+
+</style>
+

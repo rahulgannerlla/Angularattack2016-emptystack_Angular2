@@ -12,10 +12,31 @@ var core_1 = require('@angular/core');
 var SearchHistoryComponent = (function () {
     function SearchHistoryComponent() {
     }
+    SearchHistoryComponent.prototype.changeListener = function ($event) {
+        this.readThis($event.target);
+    };
+    SearchHistoryComponent.prototype.readThis = function (inputValue) {
+        for (var i = 0; i < inputValue.files.length; i++) {
+            this.getContentsOfFile(inputValue.files[i]);
+        }
+    };
+    SearchHistoryComponent.prototype.LoadWordCloud = function () {
+    };
+    SearchHistoryComponent.prototype.getContentsOfFile = function (file) {
+        var myReader = new FileReader();
+        var content = '';
+        myReader.readAsText(file, "UTF-8");
+        myReader.onload = function (e) {
+            if (document.getElementById("mycontent").innerHTML == '')
+                document.getElementById("mycontent").innerHTML = myReader.result;
+            else
+                document.getElementById("mycontent").innerHTML = document.getElementById("mycontent").innerHTML + ',' + myReader.result;
+        };
+    };
     SearchHistoryComponent = __decorate([
         core_1.Component({
             selector: 'search-history',
-            template: '<p>Search History</p>'
+            templateUrl: 'app/search_history/views/search_history.tmpl.html'
         }), 
         __metadata('design:paramtypes', [])
     ], SearchHistoryComponent);
