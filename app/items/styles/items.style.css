@@ -8,10 +8,18 @@
   
 }*/
 
+.directive-border {
+	margin:20px;
+	/*border: 1px solid black;*/
+}
+div.style-two { border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); }
+
+
 ul.rig {
 	list-style: none;
 	font-size: 0px;
-	margin-left: -2.5%; /* should match li left margin */
+	/*margin-left: -2.5%;  should match li left margin */
+	margin:auto;
 }
 ul.rig li {
 	display: inline-block;

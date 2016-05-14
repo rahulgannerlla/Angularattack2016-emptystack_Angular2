@@ -1,8 +1,11 @@
-<div>
+<div class="directive-border">
+	<h4>{{ title }}</h4>
+	<button>PREV</button>
 	<ul class="rig columns-5">
 		<li *ngFor="let item of items">
 			<item [item]="item"></item>
 		</li>	
 	</ul>
-	
+	<button>NEXT</button>
+	<!-- <div class="style-two"></div> -->
 </div>

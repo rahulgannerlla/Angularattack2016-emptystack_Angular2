@@ -17,9 +17,11 @@ var ItemsComponent = (function () {
         this._apiService = _apiService;
         this._converter = _converter;
         this.shopType = '';
+        this.title = 'ssss';
     }
     ItemsComponent.prototype.ngOnInit = function () {
         this.shopType = this.shop;
+        this.title = this.shopTitle;
         this.getItems();
     };
     ItemsComponent.prototype.getItems = function () {
@@ -33,6 +35,10 @@ var ItemsComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', String)
     ], ItemsComponent.prototype, "shop", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], ItemsComponent.prototype, "shopTitle", void 0);
     ItemsComponent = __decorate([
         core_1.Component({
             selector: 'items-list',

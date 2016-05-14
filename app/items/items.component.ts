@@ -15,14 +15,15 @@ import { Converter } from '../misc/converter';
 
 export class ItemsComponent implements OnInit{
 
-	@Input()
-	shop:string;
+	@Input() shop:string;
+	@Input() shopTitle:string;
 
 	private shopType = '';
-	
+	private title = 'ssss';
 
 	ngOnInit() {
 		this.shopType = this.shop;
+		this.title = this.shopTitle;
 		this.getItems();
 	}
 
