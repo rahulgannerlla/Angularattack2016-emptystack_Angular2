@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 // import { Header } from './material_design_lite/header';
-import { ItemsComponent } from './items/items.component';
+import { SearchItemsComponent } from './items/searchItems.component';
 import { SearchHistoryComponent } from './search_history/search_history.component';
 
 @Component({
@@ -15,9 +15,9 @@ import { SearchHistoryComponent } from './search_history/search_history.componen
 
 @RouteConfig([
 	{
-		path:'/items',
-		name:'Items',
-		component:ItemsComponent,
+		path:'/search_items',
+		name:'Search_Items',
+		component: SearchItemsComponent,
 		useAsDefault:true
 	},
 	{

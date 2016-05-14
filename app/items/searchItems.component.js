@@ -9,20 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var materialDesignLite_1 = require('./materialDesignLite');
-var Header = (function () {
-    function Header() {
+var items_component_1 = require('./items.component');
+var SearchItemsComponent = (function () {
+    function SearchItemsComponent() {
     }
-    Header = __decorate([
+    SearchItemsComponent = __decorate([
         core_1.Component({
-            selector: 'header',
-            directives: [materialDesignLite_1.MDL],
-            templateUrl: 'app/material_design_lite/views/header.tmpl.html',
-            styleUrls: ['app/material_design_lite/styles/header_style.css']
+            selector: 'search-items',
+            templateUrl: 'app/items/views/search_items.tmpl.html',
+            directives: [items_component_1.ItemsComponent]
         }), 
         __metadata('design:paramtypes', [])
-    ], Header);
-    return Header;
+    ], SearchItemsComponent);
+    return SearchItemsComponent;
 }());
-exports.Header = Header;
-//# sourceMappingURL=header.js.map
+exports.SearchItemsComponent = SearchItemsComponent;
+//# sourceMappingURL=searchItems.component.js.map

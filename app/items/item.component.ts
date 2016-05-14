@@ -11,7 +11,7 @@ import { Item } from './item';
 
 export class ItemComponent {
 	// imageUrl = 'http://lorempixel.com/400/200/sports/1';
+	@Input() item: Item;
+	
 
-	@Input()
-	item: Item;
 }

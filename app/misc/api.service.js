@@ -9,20 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var materialDesignLite_1 = require('./materialDesignLite');
-var Header = (function () {
-    function Header() {
+var mock_items_1 = require('../misc/mock-items');
+var ApiService = (function () {
+    function ApiService() {
     }
-    Header = __decorate([
-        core_1.Component({
-            selector: 'header',
-            directives: [materialDesignLite_1.MDL],
-            templateUrl: 'app/material_design_lite/views/header.tmpl.html',
-            styleUrls: ['app/material_design_lite/styles/header_style.css']
-        }), 
+    ApiService.prototype.getResults = function (url) {
+        return Promise.resolve(mock_items_1.ITEMS);
+    };
+    ApiService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], Header);
-    return Header;
+    ], ApiService);
+    return ApiService;
 }());
-exports.Header = Header;
-//# sourceMappingURL=header.js.map
+exports.ApiService = ApiService;
+//# sourceMappingURL=api.service.js.map

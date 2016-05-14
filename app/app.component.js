@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 // import { Header } from './material_design_lite/header';
-var items_component_1 = require('./items/items.component');
+var searchItems_component_1 = require('./items/searchItems.component');
 var search_history_component_1 = require('./search_history/search_history.component');
 var AppComponent = (function () {
     function AppComponent() {
@@ -27,9 +27,9 @@ var AppComponent = (function () {
         }),
         router_deprecated_1.RouteConfig([
             {
-                path: '/items',
-                name: 'Items',
-                component: items_component_1.ItemsComponent,
+                path: '/search_items',
+                name: 'Search_Items',
+                component: searchItems_component_1.SearchItemsComponent,
                 useAsDefault: true
             },
             {
