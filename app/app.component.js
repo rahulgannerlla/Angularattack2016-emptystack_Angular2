@@ -9,16 +9,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_deprecated_1 = require('@angular/router-deprecated');
 var header_1 = require('./material_design_lite/header');
+var items_component_1 = require('./items/items.component');
+var search_history_component_1 = require('./search_history/search_history.component');
 var AppComponent = (function () {
     function AppComponent() {
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'emptystack-app',
-            template: "\n\t<header></header>\n\t<h3> Empty Stack app</h3>",
-            directives: [header_1.Header]
-        }), 
+            templateUrl: 'app/views/app.view.html',
+            directives: [header_1.Header, router_deprecated_1.ROUTER_DIRECTIVES],
+            providers: [
+                router_deprecated_1.ROUTER_PROVIDERS
+            ]
+        }),
+        router_deprecated_1.RouteConfig([
+            {
+                path: '/items',
+                name: 'Items',
+                component: items_component_1.ItemsComponent,
+                useAsDefault: true
+            },
+            // },
+            {
+                path: '/search',
+                name: 'Search',
+                component: search_history_component_1.SearchHistoryComponent
+            }
+        ]), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;

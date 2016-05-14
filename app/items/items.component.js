@@ -9,19 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var materialDesignLite_1 = require('./materialDesignLite');
-var Header = (function () {
-    function Header() {
+var ItemsComponent = (function () {
+    function ItemsComponent() {
     }
-    Header = __decorate([
+    ItemsComponent = __decorate([
         core_1.Component({
-            selector: 'header',
-            directives: [materialDesignLite_1.MDL],
-            template: "\n\t\t<header mdl class=\"mdl-layout__header\">\n\t      <div class=\"mdl-layout__header-row\">\n\t          <span class=\"mdl-layout-title\">Empty Stack App</span>\n\t      \n\t  \n\t          <div class=\"mdl-layout-spacer\"></div>\n\t      </div>\n\t  </header>\n\t"
+            selector: 'items-list',
+            template: '<p>My items</p>'
         }), 
         __metadata('design:paramtypes', [])
-    ], Header);
-    return Header;
+    ], ItemsComponent);
+    return ItemsComponent;
 }());
-exports.Header = Header;
-//# sourceMappingURL=header.js.map
+exports.ItemsComponent = ItemsComponent;
+//# sourceMappingURL=items.component.js.map
