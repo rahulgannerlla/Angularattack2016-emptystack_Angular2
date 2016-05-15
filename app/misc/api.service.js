@@ -9,16 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var mock_items_1 = require('../misc/mock-items');
+var http_1 = require('@angular/http');
+require('rxjs/Rx');
 var ApiService = (function () {
-    function ApiService() {
+    function ApiService(jsonp) {
+        this.jsonp = jsonp;
     }
-    ApiService.prototype.getResults = function (url) {
-        return Promise.resolve(mock_items_1.ITEMS);
+    ApiService.prototype.getData = function () {
+        //?apiKey=kqumn8wgq6xp95kr6hy2q44q&query=ipod&numItems=5';
+        var walmart = 'http://api.walmartlabs.com/v1/search';
+        var params = new http_1.URLSearchParams();
+        params.set('apiKey', 'kqumn8wgq6xp95kr6hy2q44q');
+        params.set('query', 'laptop');
+        params.set('numItems', '5');
+        params.set('format', 'json');
+        params.set('callback', 'JSONP_CALLBACK');
+        // TODO: Add error handling
+        return this.jsonp
+            .get(walmart, { search: params })
+            .map(function (request) { return request.json(); });
     };
     ApiService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Jsonp])
     ], ApiService);
     return ApiService;
 }());

@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
 var item_component_1 = require('./item.component');
 var api_service_1 = require('../misc/api.service');
 var converter_1 = require('../misc/converter');
@@ -24,12 +25,25 @@ var ItemsComponent = (function () {
         this.title = this.shopTitle;
         this.getItems();
     };
+    // getItems() {
+    // 	this._apiService.getResults('')
+    // 					.subscribe(
+    // 						items =>	{	
+    // 										console.log();
+    // 										this.items = this._converter.convert('walmart', items);
+    // 									},
+    // 						error => 	this.errorMessage = <any>error
+    // 					);
+    // }
     ItemsComponent.prototype.getItems = function () {
         var _this = this;
-        this._apiService.getResults('').then(function (items) {
-            console.log();
-            _this.items = _this._converter.convert('walmart', items);
-        });
+        this._apiService.getData()
+            .subscribe(function (data) {
+            // console.log("ITEMS");
+            console.log(data);
+            _this.items = _this._converter.convert('walmart', data);
+        }, function (error) { return console.log("ERROR"); }, function () { return console.log("DONE"); });
+        ;
     };
     __decorate([
         core_1.Input(), 
@@ -44,7 +58,7 @@ var ItemsComponent = (function () {
             selector: 'items-list',
             templateUrl: 'app/items/views/items.tmpl.html',
             directives: [item_component_1.ItemComponent],
-            providers: [api_service_1.ApiService, converter_1.Converter],
+            providers: [http_1.JSONP_PROVIDERS, api_service_1.ApiService, converter_1.Converter],
             styleUrls: ['app/items/styles/items.style.css']
         }), 
         __metadata('design:paramtypes', [api_service_1.ApiService, converter_1.Converter])

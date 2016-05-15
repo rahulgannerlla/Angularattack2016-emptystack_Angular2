@@ -1,4 +1,6 @@
 import { Component, Input ,OnInit} from '@angular/core';
+import { JSONP_PROVIDERS }  from '@angular/http';
+import { Observable }       from 'rxjs/Observable';
 import { NgStyle } from '@angular/common';
 import { Item } from './item';
 import { ItemComponent } from './item.component';
@@ -9,7 +11,7 @@ import { Converter } from '../misc/converter';
 	selector:'items-list',
 	templateUrl:'app/items/views/items.tmpl.html',
 	directives: [ItemComponent],
-	providers:[ApiService, Converter],
+	providers:[JSONP_PROVIDERS,ApiService, Converter],
 	styleUrls:['app/items/styles/items.style.css']
 })
 
@@ -20,10 +22,11 @@ export class ItemsComponent implements OnInit{
 
 	private shopType = '';
 	private title = 'ssss';
-
+	errorMessage: string;
 	ngOnInit() {
 		this.shopType = this.shop;
 		this.title = this.shopTitle;
+
 		this.getItems();
 	}
 
@@ -35,11 +38,31 @@ export class ItemsComponent implements OnInit{
 
 	items:Item[];
 
-	getItems() {
-		this._apiService.getResults('').then(
-			items =>  {console.log();
-					this.items = this._converter.convert('walmart', items);}
-		);
+	// getItems() {
+	// 	this._apiService.getResults('')
+	// 					.subscribe(
+	// 						items =>	{	
+	// 										console.log();
+	// 										this.items = this._converter.convert('walmart', items);
+	// 									},
+	// 						error => 	this.errorMessage = <any>error
+	// 					);
+	// }
+
+	getItems(){
+		this._apiService.getData()
+			.subscribe(
+				data =>
+				{	
+					// console.log("ITEMS");
+					 console.log(data);
+					 this.items = this._converter.convert('walmart', data);
+				
+				},
+				error => console.log("ERROR"),
+				() => console.log("DONE");
+			));
+			
 	}
 
 }
