@@ -25,6 +25,7 @@ export class ItemsComponent implements OnInit{
 
 	@Input() set searchRequest( searchRequest: string) {
 		console.log('Changed!!');
+		this._searchRequest = searchRequest;
 		if(this.componentInitialised){
 			this.getItems(searchRequest, 1);
 		}else{
@@ -78,13 +79,13 @@ export class ItemsComponent implements OnInit{
 	getNextItems() {
 		console.log("NEXT");
 		this.pageNumber += 5;
-		this.getItems('bike', this.pageNumber);
+		this.getItems(this._searchRequest, this.pageNumber);
 	}
 
 	getPreviousItems() {
 		console.log("PREV");
 		this.pageNumber -= 5;
-		this.getItems('bike', this.pageNumber);
+		this.getItems(this._searchRequest, this.pageNumber);
 	}
 
 }
