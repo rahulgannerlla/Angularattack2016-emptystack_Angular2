@@ -1,0 +1,27 @@
+<!-- <div clas="search-box">
+	<div class="mdl-textfield mdl-js-textfield">
+		
+		<input class="mdl-textfield__input" [ngModel]="searchWord" type="text" id="search-box">
+	</div>
+	<div>
+		<button class="mdl-button mdl-js-button mdl-button--raised">
+	  		Search
+		</button>
+	</div>
+</div> -->
+<div id='wrapper' style='text-align: center;'>
+    <div style='display: inline-block; vertical-align: top;' class="mdl-textfield mdl-js-textfield">
+       <input class="mdl-textfield__input" [(ngModel)]="searchWord" type="text" id="search-box">
+    </div>
+    <div style='display: inline-block;margin-top:10px;'>
+       <button class="mdl-button mdl-js-button mdl-button--raised" (click)="search(searchWord)">
+	  		Search
+		</button>
+ 
+    </div>
+</div>
+
+
+<items-list [shop]="'walmart'" [shopTitle]="'Walmart'"></items-list>
+<items-list [shop]="'ebay'" [shopTitle]="'eBay'"></items-list>
+<items-list [shop]="'walmart'" [shopTitle]="'Walmart'"></items-list>

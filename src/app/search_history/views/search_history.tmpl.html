@@ -1,0 +1,103 @@
+<div>
+	<div [hidden]="termsCheck">
+		<div class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+	    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+			<section class="mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+				<div class="mdl-card mdl-cell mdl-cell--12-col">
+					<div class="mdl-card__supporting-text">
+						<h4>Terms & Conditions</h4>
+					    <ol>
+					    	<li>This page informs you regarding use of your personal information.</li>
+							<li>By any means, Data fetched from Google is not saved locally and in server. Empty Stack group is not involved in any distribution of your personal data.</li>
+							<li>The security of your personal information is very important to us. We will not share your personal data without your express permission </li>
+						</ol>
+					</div>
+					<div class="mdl-card__actions">
+					    <a class="mdl-button" (click)="agreeTerms()">I Agree</a>
+					</div>
+				</div>
+			</section>
+			</div>
+		</div>
+	</div>
+	<div  [hidden]="!termsCheck">	
+		<div class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+		    <div class="card">
+				<section class="mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+					<div class="mdl-card mdl-cell mdl-cell--12-col">
+						<div class="mdl-card__supporting-text">
+							<h4>Instructions</h4>
+						    <ol>
+						    	<li>This module of the application provides information of the most frequent words used in Google search linked to your Google account.</li>
+						    	<li>Enter www.google.com</li>
+						    	<li>Click Settings > History on the bottom right of the Google.com home page.</li>
+								<li>Click on Settings (icon with 3 periods vertically) in the Google Web & App Activity page on the top right.</li>
+								<li>Click Download searches. </li>
+								<li>Unzip the folder.</li>
+								<li>Click upload files below.</li>
+								<li>Upload SearchXXXX ---> Searches ----> Searches ----> Upload JSON files. </li>
+								<li>Information from <a href="http://www.tomsguide.com/us/delete-google-search-history,news-20802.html">Source</a>.</li>
+							</ol>
+							<div class="mdl-card__actions">
+								   <div style="margin-top: 40px; text-align: center;">
+										<button class="mdl-button mdl-js-button mdl-button--raised" (click)="openFileSystem()">
+									 		Upload Files
+										</button>
+									</div>
+									<div style="margin-top: 40px; text-align: center;">
+										<h6 style="text-align: center;">{{timerMessage}}</h6>
+										<button class="mdl-button mdl-js-button mdl-button--raised" (click)="LoadWordCloud()">
+										 	Submit
+										</button>
+									</div>
+							</div>
+							<div>
+								<h4 style="text-align: center; margin-top: 40px;">Table: Frequency of Google search words</h4>
+								<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp tableHeight">
+								  <thead>
+								    <tr>
+								      <th>Word</th>
+								      <th>Frequency</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr *ngFor = "let object of freqArray">
+								      <td>{{object[0]}}</td>
+								      <td>{{object[1]}}</td>
+								    </tr>
+								  </tbody>
+								</table>
+								<h6 style="text-align: center; color: red; margin-top: 20px">{{errormessage}}</h6>
+							</div>
+						</div>
+					</div>
+				</section>
+				<input type="file" id="filetype" (change)="changeListener($event)" multiple [hidden]="true"/>
+				<div [hidden]=true id="mycontent"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+ <style>
+ 	.demo-card-wide.mdl-card {
+	  width: 700px;
+	}
+
+	.demo-list-two {
+	  width: 300px;
+	}
+
+	.card{
+		margin-left: 20%;
+		margin-right: 20%;
+	}
+
+	.tableHeight{
+		text-align:center; 
+	    margin-left:auto; 
+	    margin-right:auto; 
+	}
+
+ </style>
