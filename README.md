@@ -32,7 +32,7 @@ First module directions:
 
 **Coolest part: Items directive can be used any number of items for any number of external sources.**
 
-
+![Product Search](/src/app//images/1.png)
 
 ###  2) Find out the most frequent word used in Google search linked to your Google account.
 
@@ -54,6 +54,7 @@ Second module Directions:
 
 * Requires an optimized way to handle data if the JSON file size is greater than 5MB.
 
+![Keyword Frequency](/src/app//images/2.png)
 
 ###  Credits [ Referenced websites, copied CSS, RestAPI ]
 
@@ -62,6 +63,8 @@ Second module Directions:
 * Material Design Lite.
 * Walmart and eBay Rest API.
 * Google search history.
+* Stopwords in keyword frequency from https://www.jasondavies.com/.
+* CSS grid tiles - http://alijafarian.com/responsive-image-grids-using-css/.
 
 
 
