@@ -18,6 +18,7 @@ export class SearchHistoryComponent {
 
 	openFileSystem():void{
 		this.errormessage = '';
+		document.getElementById("mycontent").innerHTML = '';
 		setTimeout(function() {
 			document.getElementById('filetype').click()
 		}, 0);
@@ -35,6 +36,8 @@ export class SearchHistoryComponent {
 	}
 
 	LoadWordCloud(): void {
+
+		this.freqArray = [];
 
 		var stopwordsHash = {
 			"i": 1, "me": 1, "my": 1,
@@ -129,7 +132,9 @@ export class SearchHistoryComponent {
 			var sortable = [];
 			for (var vehicle in hash)
 				sortable.push([vehicle, hash[vehicle]])
+
 			sortable.sort(function(a, b) { return a[1] - b[1] })
+
 			for (var i = sortable.length - 1; i >= 0; i--) {
 				if (sortable.length - 75 > 0){
 					if (i >= sortable.length - 75) {
