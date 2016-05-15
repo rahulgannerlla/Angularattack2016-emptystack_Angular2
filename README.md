@@ -25,6 +25,12 @@ First module directions:
 
 * You can compare the results with in different entities and choose the item you like.
 
+* We pipe JSON data from Walmart, eBay and Overstock to data layer in the application.
+
+* The data layer preprocesses the JSON file and pipes to Items directive.
+
+**Coolest part: Items directive can be used any number of items for any number of external sources.**
+
 
 
 ###  2) Find out the most frequent word used in Google search linked to your Google account.
@@ -45,14 +51,16 @@ Second module Directions:
 
 * Upload SearchXXXX ---> Searches ----> Searches ----> Upload JSON files.
 
+* Requires an optimized way to handle data if the JSON file size is greater than 5MB.
+
 
 ###  Credits [ Referenced websites, copied CSS, RestAPI ]
 
 * (https://github.com/IanLunn/Hover) (for tile bounce in effect).
 * Sorting JS code from stackoverflow (Copyrights: Nosredna).
 * Material Design Lite.
-* Walmart, eBay and Overstock API.
-* 
+* Walmart, eBay and Overstock Rest API.
+* Google search history.
 
 
 
