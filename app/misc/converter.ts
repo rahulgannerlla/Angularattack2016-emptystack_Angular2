@@ -11,6 +11,8 @@ export class Converter {
 		switch (shop) {
 			case "walmart":
 				return this.convert_walmart(jsonObject);
+			case "ebay":
+				return this.convert_ebay(jsonObject);
 			default:
 				return [];
 		}
@@ -23,7 +25,6 @@ export class Converter {
 		
 		for (var i = 0; i < jsonObject.items.length; i++) {
 
-			console.log(jsonObject.items[i]);
 			result.push(
 				{
 					price: jsonObject.items[i]['salePrice'],
@@ -35,6 +36,27 @@ export class Converter {
 		}
 
 		return result;
+	}
 
+
+	convert_ebay(jsonObject){
+
+		jsonObject = jsonObject['findItemsByKeywordsResponse'][0]['searchResult'][0];
+
+		var result = [];
+
+		for (var i = 0; i < jsonObject.item.length; i++) {
+
+			result.push(
+				{
+					price: jsonObject.item[i]['sellingStatus'][0]['currentPrice'][0]["@currencyId"] + ' ' + jsonObject.item[0]['sellingStatus'][0]['currentPrice'][0]["__value__"],
+					description: jsonObject.item[i]['title'][0],
+					image: jsonObject.item[i]['galleryURL'][0],
+					productUrl: jsonObject.item[i]['viewItemURL'][0]
+				}
+			);
+		}
+
+		return result;
 	}
 }

@@ -5,6 +5,7 @@ Contributors: Rahul Gannerlla, Alain Licona
 The main scope of this project is to get hands on experience learning Angular2. In the span of 48 hours, We focussed on few of the very important aspects of Angular2:
 
 * Use of Directives.
+* Use of Components and Classes.
 * Use of RestAPI to fetch data from external sources.
 * Use of Material Design lite and CSS card styles.
 * Lazy-loading.

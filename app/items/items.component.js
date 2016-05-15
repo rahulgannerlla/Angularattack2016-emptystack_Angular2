@@ -31,7 +31,7 @@ var ItemsComponent = (function () {
         console.log("Get new items From : ", this.shopType);
         this._apiService.getData(this.shopType, query, page)
             .subscribe(function (data) {
-            _this.items = _this._converter.convert('walmart', data);
+            _this.items = _this._converter.convert(_this.shopType, data);
         }, function (error) { return console.log("ERROR"); }, function () { return console.log("DONE"); });
     };
     ItemsComponent.prototype.getNextItems = function () {

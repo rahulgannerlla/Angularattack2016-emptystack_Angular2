@@ -47,7 +47,7 @@ export class ItemsComponent implements OnInit{
 			.subscribe(
 				data =>
 				{	
-					 this.items = this._converter.convert('walmart', data);
+					 this.items = this._converter.convert(this.shopType, data);
 				
 				},
 				error => console.log("ERROR"),

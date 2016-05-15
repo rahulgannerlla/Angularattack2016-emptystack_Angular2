@@ -19,6 +19,8 @@ var ApiService = (function () {
         switch (shop) {
             case "walmart":
                 return this.getWalmartData(query, page);
+            case "ebay":
+                return this.getEbayData(query, page);
             default:
                 break;
         }
@@ -30,6 +32,25 @@ var ApiService = (function () {
         params.set('query', query);
         params.set('numItems', '5');
         params.set('start', page.toString());
+        params.set('format', 'json');
+        params.set('callback', 'JSONP_CALLBACK');
+        // TODO: Add error handling
+        console.log(params);
+        return this.jsonp
+            .get(walmart, { search: params })
+            .map(function (request) { return request.json(); });
+    };
+    ApiService.prototype.getEbayData = function (query, page) {
+        var walmart = 'http://svcs.ebay.com/services/search/FindingService/v1';
+        var params = new http_1.URLSearchParams();
+        params.set('OPERATION-NAME', 'findItemsByKeywords');
+        params.set('SERVICE-VERSION', '1.0.0');
+        params.set('SECURITY-APPNAME', 'AlainLic-emptysta-PRD-02f839347-58647d3e');
+        params.set('GLOBAL-ID', 'EBAY-US');
+        params.set('RESPONSE-DATA-FORMAT', 'JSON');
+        params.set('keywords', query);
+        params.set('paginationInput.entriesPerPage', '5');
+        //params.set('start', page.toString());
         params.set('format', 'json');
         params.set('callback', 'JSONP_CALLBACK');
         // TODO: Add error handling
