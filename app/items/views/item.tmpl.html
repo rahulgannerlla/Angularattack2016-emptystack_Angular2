@@ -12,9 +12,11 @@
   </div>
 </div> -->
 <div class="center-div" *ngIf="item">
-  <a href="{{item.productUrl}}"><img src="{{ item.image }}"></a>
+  <a href="{{item.productUrl}}" class="hvr-bounce-in"><img src="{{ item.image }}"></a>
   <h4>${{ item.price }}</h4>
   <p>{{ item.description.substring(0,30) }}...</p>  
   <a href="{{item.productUrl}}">Read More</a>
 </div>
  
+
+

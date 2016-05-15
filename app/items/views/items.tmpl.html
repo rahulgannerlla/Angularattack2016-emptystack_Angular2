@@ -1,14 +1,41 @@
 <div class="directive-border">
 	<h4>{{ title }}</h4>
-	<div class="center">
-		<img (click)="getPreviousItems();"  [hidden]="pageNumber==1" class="scroll-button" src="app/images/l.jpg" />
-		<ul class="rig columns-5">
-			<li *ngFor="let item of items" >
-				<item [item]="item"></item>
-			</li>	
-		</ul>
-		<img (click)="getNextItems();" class="scroll-button" src="app/images/r.jpg" />
+	<div>
+		<div class="prev">
+			<img (click)="getPreviousItems();"  [hidden]="pageNumber==1" class="scroll-button" src="app/images/l.jpg" />
+		</div>
+		<div class="gallery">
+			<ul class="rig columns-5">
+				<li *ngFor="let item of items" >
+					<item [item]="item"></item>
+				</li>	
+			</ul>
+		</div>
+		<div class="next">
+			<img (click)="getNextItems();" class="scroll-button" src="app/images/r.jpg" />
+		</div>
+		
 	</div>
 	
 	<!-- <div class="style-two"></div> -->
 </div>
+
+
+<style>
+	.prev{
+		width: 6%;
+		float: left;
+		margin-left: 2%;
+		margin-top: 6%;
+	}
+	.gallery{
+		width: 86%;
+		float: left;
+	}
+	.next{
+		width: 6%;
+		float: left;
+		margin-top: 6%
+;	}
+</style>
+	
