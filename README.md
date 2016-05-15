@@ -32,7 +32,7 @@ First module directions:
 
 **Coolest part: Items directive can be used any number of items for any number of external sources.**
 
-![ScreenShot](/images/l.jpg)
+![Product Search](/src/app//images/l.jpg)
 
 ###  2) Find out the most frequent word used in Google search linked to your Google account.
 
