@@ -39,13 +39,15 @@ export class ItemsComponent implements OnInit{
 	private title = 'ssss';
 	private pageNumber = 1;
 	private componentInitialised = false;
-	
+	public ebayGlobalArray;
+
 	errorMessage: string;
 
 	ngOnInit() {
 		this.shopType = this.shop;
 		this.title = this.shopTitle;
 		this.componentInitialised = true;
+		this.ebayGlobalArray = [];
 		this.getItems('ipod', 1);
 	}
 
@@ -62,13 +64,19 @@ export class ItemsComponent implements OnInit{
 	}
 
 	public getItems(query:string, page:number){
-		
+		console.log("shoptype");
+		console.log(query);
 		this._apiService.getData(this.shopType, query, page)
 			.subscribe(
 				data =>
-				{	
-					 this.items = this._converter.convert(this.shopType, data);
-				
+				{	if(this.shopType == 'walmart')
+					 	this.items = this._converter.convert(this.shopType, data);
+					 else{
+						this.ebayGlobalArray = this._converter.convert(this.shopType, data);
+						this.pageNumber = 1;
+						var temp = this.pageNumber;
+						this.items = this.ebayGlobalArray.slice(this.pageNumber,  temp+5);		
+					 }	
 				},
 				error => console.log("ERROR"),
 				() => console.log("DONE")
@@ -77,15 +85,32 @@ export class ItemsComponent implements OnInit{
 	}
 
 	getNextItems() {
-		console.log("NEXT");
 		this.pageNumber += 5;
-		this.getItems(this._searchRequest, this.pageNumber);
+		if (this.shopType == 'walmart') {
+			console.log("NEXT");
+			this.getItems(this._searchRequest, this.pageNumber);
+		} else {
+
+			if (this.pageNumber < (this.ebayGlobalArray.length - 1)) {
+				var temp = this.pageNumber + 5;
+				this.items = this.ebayGlobalArray.slice(this.pageNumber, temp);
+			}
+		}
+		
 	}
 
+
 	getPreviousItems() {
-		console.log("PREV");
 		this.pageNumber -= 5;
-		this.getItems(this._searchRequest, this.pageNumber);
+		if (this.shopType == 'walmart') {
+			console.log("PREV");
+			this.getItems(this._searchRequest, this.pageNumber);
+		}else{
+			if (this.pageNumber > 0) {
+				var temp = this.pageNumber + 5;
+				this.items = this.ebayGlobalArray.slice(this.pageNumber, temp);
+			}
+		}
 	}
 
 }

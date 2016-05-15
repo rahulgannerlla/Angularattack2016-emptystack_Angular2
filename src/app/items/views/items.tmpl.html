@@ -4,7 +4,7 @@
 	<div>
 
 			<ul class="rig columns-5">
-				<img style="margin-top: 6%" (click)="getPreviousItems();"  [hidden]="pageNumber==1" class="scroll-button" src="app/images/l.jpg" />
+				<img style="margin-top: 6%" (click)="getPreviousItems();"  [hidden]="pageNumber==1 " class="scroll-button" src="app/images/l.jpg" />
 				<li *ngFor="let item of items" >
 					<item [item]="item"></item>
 				</li>	

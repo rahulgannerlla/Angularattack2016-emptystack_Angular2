@@ -39,7 +39,7 @@ export class ApiService {
 	
 
 	getEbayData(query: string, page:number){
-		let walmart = 'http://svcs.ebay.com/services/search/FindingService/v1';
+		let ebay = 'http://svcs.ebay.com/services/search/FindingService/v1';
 		var params = new URLSearchParams();
 		params.set('OPERATION-NAME', 'findItemsByKeywords');
 		params.set('SERVICE-VERSION', '1.0.0');
@@ -47,7 +47,7 @@ export class ApiService {
 		params.set('GLOBAL-ID', 'EBAY-US');
 		params.set('RESPONSE-DATA-FORMAT', 'JSON');
 		params.set('keywords', query);
-		params.set('paginationInput.entriesPerPage', '5');
+		params.set('paginationInput.entriesPerPage', '50');
 		//params.set('start', page.toString());
 
 		params.set('format', 'json');
@@ -55,7 +55,7 @@ export class ApiService {
 		// TODO: Add error handling
 		console.log(params);
 		return this.jsonp
-			.get(walmart, { search: params })
+			.get(ebay, { search: params })
 			.map(request => request.json());
 	}
 
