@@ -9,14 +9,11 @@ import { ItemsComponent } from './items.component';
 })
 
 export class SearchItemsComponent {
-	searchWord: string = 'Hello There';
-
+	searchRequest: string = 'ipod';
+	query: string = '';
 	constructor() { }
 
 	search(text:string) {
-		console.log(text);
-
-
-		
+		this.query = text;
 	}
 }
