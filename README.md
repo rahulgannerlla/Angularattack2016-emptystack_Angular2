@@ -1,48 +1,60 @@
-# This is your [AngularAttack](https://www.angularattack.com) 2016 Repo
+# EmptyStack
 
-This repo is the start of your AngularAttack 2016 entry. It contains the simple [Angular2 starter](https://angular.io/docs/ts/latest/quickstart.html) files.
+Contributors: Rahul Gannerlla, Alain Licona
 
-**DO NOT MAKE ANY CODE CHECKINS TO THIS REPOSITORY BEFORE THE COMPETITION OFFICIALLY BEGINS.**
+The main scope of this project is to get hands on experience learning Angular2. In the span of 48 hours, We focussed on few of the very important aspects of Angular2:
 
-**DOING SO COULD DISQUALIFY YOU.**
-
-
-However, before the competition starts, there are some things we encourage you to do to get prepared for the competition.
-
-
-### Step 1) Get Your Local Environment setup
-
-Clone this repo locally, and make sure all your team members have access to it.
-
-* Install the latest [Node / NPM](https://nodejs.org).
-
-* `git clone git@github.com:rumblex/angularattack2016-emptystack.git`
-
-* `cd angularattack2016-emptystack`
-
-* `npm install`
-
-* `npm start` will start the server locally to test that everything is running correctly
+* Use of Directives.
+* Use of RestAPI to fetch data from external sources.
+* Use of Material Design lite and CSS card styles.
+* Lazy-loading.
+* Routing.
+* Handling larger amounts of data while parsing JSON.
+* Observables and Subscribers.
 
 
-### Step 2) Deploy Your App
+**Emptystack project includes two modules.**
 
-While you can't make any checkins before the comp, what you **can** do right now is deploy this sample app to [Surge](https://surge.sh) (our competition hosting provider).
+###  1) Search Product
 
-* `npm install -g surge`
+First module directions:
 
-* `surge .`
+* Enter the keyword you would like to search.
 
-Note: please do not remove the `CNAME` file, as that tells it where to deploy to.
+* We aggregate the results from Walmart, eBay and Overstock using RestAPI.
 
-If receive the error message `"You do not have permission to publish to emptystack.2016.angularattack.io"`, it might mean another team member has already deployed your project to Surge. Ask them to run the next step to give you access.
-
-### Step 3) Add Your Team Members to Surge
-
-* `surge . --add conexionadsl@gmail.com,rahulgannerlla@gmail.com`
+* You can compare the results with in different entities and choose the item you like.
 
 
-### Step 4) Wait til competition starts
 
-It begins at exactly [May 14 at 00:00 UTC](https://www.wolframalpha.com/input/?i=May+14,+2016+0:00+UTC). Once the competition starts,   you can write over this project.
+###  2) Find out the most frequent word used in Google search linked to your Google account.
+
+Second module Directions:
+
+* This module of the application provides information of the most frequent words used in Google search linked to your Google account.
+
+* Enter www.google.com.
+
+* Click Settings > History on the bottom right of the Google.com home page.
+
+* Click on Settings (icon with 3 periods vertically) in the Google Web & App Activity page on the top right.
+
+* Download searches and Unzip the folder.
+
+* Click on upload files below.
+
+* Upload SearchXXXX ---> Searches ----> Searches ----> Upload JSON files.
+
+
+###  Credits [ Referenced websites, copied CSS, RestAPI ]
+
+* (https://github.com/IanLunn/Hover) (for tile bounce in effect).
+* Sorting JS code from stackoverflow (Copyrights: Nosredna).
+* Material Design Lite.
+* Walmart, eBay and Overstock API.
+* 
+
+
+
+
 
