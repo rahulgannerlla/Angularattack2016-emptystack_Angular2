@@ -1,7 +1,8 @@
 <div class="directive-border">
 	<h4>{{ title }}</h4>
+
 	<div>
-			
+
 			<ul class="rig columns-5">
 				<img style="margin-top: 6%" (click)="getPreviousItems();"  [hidden]="pageNumber==1" class="scroll-button" src="app/images/l.jpg" />
 				<li *ngFor="let item of items" >

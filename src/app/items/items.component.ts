@@ -17,32 +17,51 @@ import { Converter } from '../misc/converter';
 
 export class ItemsComponent implements OnInit{
 
+	_searchRequest: string = '';
+
 	@Input() shop:string;
 	@Input() shopTitle:string;
 	@Input() query:string;
 
+	@Input() set searchRequest( searchRequest: string) {
+		console.log('Changed!!');
+		if(this.componentInitialised){
+			this.getItems(searchRequest, 1);
+		}else{
+			
+		}
+		
+	};
+
+
 	private shopType = '';
 	private title = 'ssss';
 	private pageNumber = 1;
-
+	private componentInitialised = false;
+	
 	errorMessage: string;
+
 	ngOnInit() {
 		this.shopType = this.shop;
 		this.title = this.shopTitle;
-
-		this.getItems('white bike', this.pageNumber);
+		this.componentInitialised = true;
+		this.getItems('ipod', 1);
 	}
 
 
 	constructor(private _apiService: ApiService, private _converter: Converter ) {
-	
+		
 	}
 
 	items:Item[];
 
+	getValue(){
+		this.componentInitialised = true;
+		console.log(this.searchRequest);
+	}
 
 	public getItems(query:string, page:number){
-		console.log("Get new items From : ", this.shopType );
+		
 		this._apiService.getData(this.shopType, query, page)
 			.subscribe(
 				data =>
