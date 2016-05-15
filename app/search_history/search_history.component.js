@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var SearchHistoryComponent = (function () {
     function SearchHistoryComponent() {
+        this.timerMessage = "Once finished with upload, please wait for 4-5 seconds and then click Submit button";
         this.termsCheck = false;
         this.freqArray = [];
     }
@@ -18,6 +19,7 @@ var SearchHistoryComponent = (function () {
         this.termsCheck = true;
     };
     SearchHistoryComponent.prototype.openFileSystem = function () {
+        this.errormessage = '';
         setTimeout(function () {
             document.getElementById('filetype').click();
         }, 0);
@@ -133,7 +135,7 @@ var SearchHistoryComponent = (function () {
             console.log(this.freqArray);
         }
         catch (e) {
-            this.errormessage = "Error parsing JSON file";
+            this.errormessage = "Error processing files. Please try again after few minutes.";
         }
     };
     SearchHistoryComponent.prototype.getContentsOfFile = function (file) {

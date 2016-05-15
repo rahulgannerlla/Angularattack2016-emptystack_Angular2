@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class SearchHistoryComponent {
-	public errormessage;
+	public errormessage, timerMessage="Once finished with upload, please wait for 4-5 seconds and then click Submit button";
 	public termsCheck = false;
 	public freqArray = [];
 
@@ -16,6 +16,7 @@ export class SearchHistoryComponent {
 	}
 
 	openFileSystem():void{
+		this.errormessage = '';
 		setTimeout(function() {
 			document.getElementById('filetype').click()
 		}, 0);
@@ -144,7 +145,7 @@ export class SearchHistoryComponent {
 
 		}
 		catch (e) {
-			this.errormessage = "Error parsing JSON file";
+			this.errormessage = "Error processing files. Please try again after few minutes.";
 		}
 	}
 

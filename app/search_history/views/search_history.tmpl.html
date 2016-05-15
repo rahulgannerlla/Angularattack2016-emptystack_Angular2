@@ -45,13 +45,14 @@
 										</button>
 									</div>
 									<div style="margin-top: 40px; text-align: center;">
+										<h6 style="text-align: center;">{{timerMessage}}</h6>
 										<button class="mdl-button mdl-js-button mdl-button--raised" (click)="LoadWordCloud()">
 										 	Submit
 										</button>
 									</div>
 							</div>
 							<div>
-								<h4 style="text-align: center;">Frequency of Google search words</h4>
+								<h4 style="text-align: center; margin-top: 40px;">Table: Frequency of Google search words</h4>
 								<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp tableHeight">
 								  <thead>
 								    <tr>
@@ -59,17 +60,14 @@
 								      <th>Frequency</th>
 								    </tr>
 								  </thead>
-
 								  <tbody>
 								    <tr *ngFor = "let object of freqArray">
 								      <td>{{object[0]}}</td>
 								      <td>{{object[1]}}</td>
 								    </tr>
 								  </tbody>
-
-
-
 								</table>
+								<h6 style="text-align: center; color: red; margin-top: 20px">{{errormessage}}</h6>
 							</div>
 						</div>
 					</div>
@@ -97,7 +95,6 @@
 	}
 
 	.tableHeight{
-		margin-top: 40px;
 		text-align:center; 
 	    margin-left:auto; 
 	    margin-right:auto; 
