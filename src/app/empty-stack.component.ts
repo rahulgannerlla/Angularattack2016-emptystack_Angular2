@@ -3,6 +3,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
 
 import { SearchItemsComponent } from './items/searchItems.component';
 import { SearchHistoryComponent } from './search_history/search_history.component';
+import { AboutComponent } from './about/about.component';
 
 @Component({
   moduleId: module.id,
@@ -23,6 +24,11 @@ import { SearchHistoryComponent } from './search_history/search_history.componen
 		path: '/search',
 		name: 'Search',
 		component: SearchHistoryComponent
+	},
+	{
+		path: '/about',
+		name: 'About',
+		component: AboutComponent
 	}
 ])
 export class EmptyStackAppComponent { 

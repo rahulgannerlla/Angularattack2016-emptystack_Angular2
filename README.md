@@ -66,6 +66,7 @@ Second module Directions:
 * Stopwords in keyword frequency from https://www.jasondavies.com/.
 * CSS grid tiles - http://alijafarian.com/responsive-image-grids-using-css/.
 * https://angular.io/docs/ts/latest/quickstart.html.
+* http://www.webdesignerdepot.com/2015/02/3-cool-css3-image-hover-effects/
 * Structural Group.
 
 
