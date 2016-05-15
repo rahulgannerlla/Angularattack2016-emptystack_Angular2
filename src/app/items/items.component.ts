@@ -48,7 +48,7 @@ export class ItemsComponent implements OnInit{
 		this.title = this.shopTitle;
 		this.componentInitialised = true;
 		this.ebayGlobalArray = [];
-		this.getItems('ipod', 1);
+		this.getItems('iphone', 1);
 	}
 
 
@@ -65,7 +65,7 @@ export class ItemsComponent implements OnInit{
 
 	public getItems(query:string, page:number){
 		console.log("shoptype");
-		console.log(query);
+		console.log(this.shopType);
 		this._apiService.getData(this.shopType, query, page)
 			.subscribe(
 				data =>
