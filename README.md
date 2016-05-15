@@ -62,6 +62,8 @@ Second module Directions:
 * Material Design Lite.
 * Walmart and eBay Rest API.
 * Google search history.
+* Stopwords in keyword frequency from https://www.jasondavies.com/.
+* CSS grid tiles - http://alijafarian.com/responsive-image-grids-using-css/.
 
 
 
