@@ -60,8 +60,8 @@ export class ItemsComponent implements OnInit{
 				
 				},
 				error => console.log("ERROR"),
-				() => console.log("DONE");
-			));
+				() => console.log("DONE")
+			);
 			
 	}
 

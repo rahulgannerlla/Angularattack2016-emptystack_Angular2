@@ -43,7 +43,6 @@ var ItemsComponent = (function () {
             console.log(data);
             _this.items = _this._converter.convert('walmart', data);
         }, function (error) { return console.log("ERROR"); }, function () { return console.log("DONE"); });
-        ;
     };
     __decorate([
         core_1.Input(), 

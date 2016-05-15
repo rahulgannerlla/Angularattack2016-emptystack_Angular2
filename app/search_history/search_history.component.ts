@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
 })
 
 export class SearchHistoryComponent {
-	public errormessage, timerMessage="Once finished with upload, please wait for 4-5 seconds and then click Submit button";
+	public errormessage; 
+	public timerMessage="Once finished with upload, please wait for 4-5 seconds and then click Submit button";
 	public termsCheck = false;
 	public freqArray = [];
 
