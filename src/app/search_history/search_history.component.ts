@@ -11,6 +11,8 @@ export class SearchHistoryComponent {
 	public timerMessage="Once finished with upload, please wait for 4-5 seconds and then click Submit button";
 	public termsCheck = false;
 	public freqArray = [];
+	public firstTable = [];
+	public secondTable = [];
 
 	agreeTerms():void{
 		this.termsCheck = true;
@@ -38,6 +40,8 @@ export class SearchHistoryComponent {
 	LoadWordCloud(): void {
 
 		this.freqArray = [];
+		this.firstTable = [];
+		this.secondTable = [];
 
 		var stopwordsHash = {
 			"i": 1, "me": 1, "my": 1,
@@ -133,21 +137,29 @@ export class SearchHistoryComponent {
 			for (var vehicle in hash)
 				sortable.push([vehicle, hash[vehicle]])
 
+			var count = 1;
+
 			sortable.sort(function(a, b) { return a[1] - b[1] })
 
 			for (var i = sortable.length - 1; i >= 0; i--) {
-				if (sortable.length - 75 > 0){
-					if (i >= sortable.length - 75) {
+				if (sortable.length - 70 > 0){
+					if (i >= sortable.length - 70) {
+						sortable[i].push(count);
 						this.freqArray.push(sortable[i]);
 					}
 					else
 						break;
-				}else
+				}else{
+					sortable[i].push(count);
 					this.freqArray.push(sortable[i]);
+				}
+				count = count + 1;
 				
 			}
 
-			console.log(this.freqArray);
+			this.firstTable = this.freqArray.slice(0, 35);
+			this.secondTable = this.freqArray.slice(36, 70);
+			//console.log(this.freqArray);
 
 		}
 		catch (e) {

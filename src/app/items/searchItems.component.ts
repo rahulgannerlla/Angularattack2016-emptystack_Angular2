@@ -9,7 +9,7 @@ import { ItemsComponent } from './items.component';
 })
 
 export class SearchItemsComponent {
-	searchRequest: string = 'ipod';
+	searchRequest: string = 'iphone';
 	query: string = '';
 	constructor() { }
 

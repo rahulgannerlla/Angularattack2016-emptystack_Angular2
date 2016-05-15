@@ -51,22 +51,42 @@
 										</button>
 									</div>
 							</div>
-							<div>
+							<div style="text-align: center;">
 								<h4 style="text-align: center; margin-top: 40px;">Table: Frequency of Google search words</h4>
-								<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp tableHeight">
+								<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp tableHeight" style="display: inline-block;">
 								  <thead>
 								    <tr>
-								      <th>Word</th>
+								      <th>S.No.</th>
+								      <th style="text-align: center">Word</th>
 								      <th>Frequency</th>
 								    </tr>
 								  </thead>
 								  <tbody>
-								    <tr *ngFor = "let object of freqArray">
-								      <td>{{object[0]}}</td>
-								      <td>{{object[1]}}</td>
+								    <tr *ngFor = "let object of firstTable">
+								    	<td>{{object[2]}}</td>
+								      	<td style="text-align: center">{{object[0]}}</td>
+								      	<td>{{object[1]}}</td>
 								    </tr>
 								  </tbody>
 								</table>
+								<span style="display: inline-block; width: 30px"></span>
+								<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp tableHeight" style="display: inline-block;">
+								  <thead>
+								    <tr>
+								      <th>S.No.</th>
+								      <th style="text-align: center">Word</th>
+								      <th>Frequency</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr *ngFor = "let object of secondTable">
+								    	<td>{{object[2]}}</td>
+								      	<td style="text-align: center">{{object[0]}}</td>
+								      	<td>{{object[1]}}</td>
+								    </tr>
+								  </tbody>
+								</table>
+
 								<h6 style="text-align: center; color: red; margin-top: 20px">{{errormessage}}</h6>
 							</div>
 						</div>

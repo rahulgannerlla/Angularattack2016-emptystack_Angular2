@@ -120,10 +120,19 @@ var SearchHistoryComponent = (function () {
             var sortable = [];
             for (var vehicle in hash)
                 sortable.push([vehicle, hash[vehicle]]);
+
             sortable.sort(function (a, b) { return a[1] - b[1]; });
+
+            var count = 1;
+
+             console.log(JSON.stringify(sortable[0]));
+
             for (var i = sortable.length - 1; i >= 0; i--) {
-                if (sortable.length - 75 > 0) {
-                    if (i >= sortable.length - 75) {
+                if (sortable.length - 70 > 0) {
+                    if (i >= sortable.length - 70) {
+                        
+                        sortable[i].push(count);
+                       
                         this.freqArray.push(sortable[i]);
                     }
                     else
@@ -132,7 +141,7 @@ var SearchHistoryComponent = (function () {
                 else
                     this.freqArray.push(sortable[i]);
             }
-            console.log(this.freqArray);
+           // console.log(this.freqArray);
         }
         catch (e) {
             this.errormessage = "Error processing files. Please try again after few minutes.";
