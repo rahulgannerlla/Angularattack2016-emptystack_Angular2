@@ -72,3 +72,23 @@ ul.rig.columns-5 li {
 		margin: 0 0 20px;
 	}
 }
+
+
+
+/*Scroll Buttons*/
+.scroll-button{
+	height: 60px;
+	width: 60px;
+	opacity: 0.5;
+
+}
+
+.scroll-button:hover{
+	opacity: 1;
+
+}
+
+.center{
+	/*display: inline-block;*/
+	/*vertical-align: middle;*/
+}

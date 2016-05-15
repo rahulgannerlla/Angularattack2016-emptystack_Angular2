@@ -1,11 +1,14 @@
 <div class="directive-border">
 	<h4>{{ title }}</h4>
-	<button (click)="getPreviousItems();"  [hidden]="pageNumber==1">PREV</button>
-	<ul class="rig columns-5">
-		<li *ngFor="let item of items" >
-			<item [item]="item"></item>
-		</li>	
-	</ul>
-	<button (click)="getNextItems();" >NEXT</button>
+	<div class="center">
+		<img (click)="getPreviousItems();"  [hidden]="pageNumber==1" class="scroll-button" src="app/images/l.jpg" />
+		<ul class="rig columns-5">
+			<li *ngFor="let item of items" >
+				<item [item]="item"></item>
+			</li>	
+		</ul>
+		<img (click)="getNextItems();" class="scroll-button" src="app/images/r.jpg" />
+	</div>
+	
 	<!-- <div class="style-two"></div> -->
 </div>
