@@ -22,11 +22,11 @@ First module directions:
 
 * Enter the keyword you would like to search.
 
-* We aggregate the results from Walmart, eBay and Overstock using RestAPI.
+* We aggregate the results from Walmart and eBay using RestAPI.
 
 * You can compare the results with in different entities and choose the item you like.
 
-* We pipe JSON data from Walmart, eBay and Overstock to data layer in the application.
+* We pipe JSON data from Walmart and eBay to data layer in the application.
 
 * The data layer preprocesses the JSON file and pipes to Items directive.
 
@@ -60,7 +60,7 @@ Second module Directions:
 * (https://github.com/IanLunn/Hover) (for tile bounce in effect).
 * Sorting JS code from stackoverflow (Copyrights: Nosredna).
 * Material Design Lite.
-* Walmart, eBay and Overstock Rest API.
+* Walmart and eBay Rest API.
 * Google search history.
 
 
