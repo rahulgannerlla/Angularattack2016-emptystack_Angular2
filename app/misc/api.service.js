@@ -15,16 +15,25 @@ var ApiService = (function () {
     function ApiService(jsonp) {
         this.jsonp = jsonp;
     }
-    ApiService.prototype.getData = function () {
-        //?apiKey=kqumn8wgq6xp95kr6hy2q44q&query=ipod&numItems=5';
+    ApiService.prototype.getData = function (shop, query, page) {
+        switch (shop) {
+            case "walmart":
+                return this.getWalmartData(query, page);
+            default:
+                break;
+        }
+    };
+    ApiService.prototype.getWalmartData = function (query, page) {
         var walmart = 'http://api.walmartlabs.com/v1/search';
         var params = new http_1.URLSearchParams();
         params.set('apiKey', 'kqumn8wgq6xp95kr6hy2q44q');
-        params.set('query', 'laptop');
+        params.set('query', query);
         params.set('numItems', '5');
+        params.set('start', page.toString());
         params.set('format', 'json');
         params.set('callback', 'JSONP_CALLBACK');
         // TODO: Add error handling
+        console.log(params);
         return this.jsonp
             .get(walmart, { search: params })
             .map(function (request) { return request.json(); });

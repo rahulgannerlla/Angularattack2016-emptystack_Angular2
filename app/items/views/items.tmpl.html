@@ -1,11 +1,11 @@
 <div class="directive-border">
 	<h4>{{ title }}</h4>
-	<button>PREV</button>
+	<button (click)="getPreviousItems();"  [hidden]="pageNumber==1">PREV</button>
 	<ul class="rig columns-5">
-		<li *ngFor="let item of items">
+		<li *ngFor="let item of items" >
 			<item [item]="item"></item>
 		</li>	
 	</ul>
-	<button>NEXT</button>
+	<button (click)="getNextItems();" >NEXT</button>
 	<!-- <div class="style-two"></div> -->
 </div>

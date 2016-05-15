@@ -19,43 +19,34 @@ export class ItemsComponent implements OnInit{
 
 	@Input() shop:string;
 	@Input() shopTitle:string;
+	@Input() query:string;
 
 	private shopType = '';
 	private title = 'ssss';
+	private pageNumber = 1;
+
 	errorMessage: string;
 	ngOnInit() {
 		this.shopType = this.shop;
 		this.title = this.shopTitle;
 
-		this.getItems();
+		this.getItems('white bike', this.pageNumber);
 	}
 
 
-
 	constructor(private _apiService: ApiService, private _converter: Converter ) {
-		
+	
 	}
 
 	items:Item[];
 
-	// getItems() {
-	// 	this._apiService.getResults('')
-	// 					.subscribe(
-	// 						items =>	{	
-	// 										console.log();
-	// 										this.items = this._converter.convert('walmart', items);
-	// 									},
-	// 						error => 	this.errorMessage = <any>error
-	// 					);
-	// }
 
-	getItems(){
-		this._apiService.getData()
+	public getItems(query:string, page:number){
+		console.log("Get new items From : ", this.shopType );
+		this._apiService.getData(this.shopType, query, page)
 			.subscribe(
 				data =>
 				{	
-					// console.log("ITEMS");
-					 console.log(data);
 					 this.items = this._converter.convert('walmart', data);
 				
 				},
@@ -63,6 +54,18 @@ export class ItemsComponent implements OnInit{
 				() => console.log("DONE")
 			);
 			
+	}
+
+	getNextItems() {
+		console.log("NEXT");
+		this.pageNumber += 5;
+		this.getItems('bike', this.pageNumber);
+	}
+
+	getPreviousItems() {
+		console.log("PREV");
+		this.pageNumber -= 5;
+		this.getItems('bike', this.pageNumber);
 	}
 
 }

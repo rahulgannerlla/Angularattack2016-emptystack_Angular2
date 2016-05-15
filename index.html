@@ -22,8 +22,8 @@
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script> -->
 
      <!-- Material Design Lite -->
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="styles.css">
 
     <!-- 2. Configure SystemJS -->
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <script src="systemjs.config.js"></script>
     <script>
       System.import('app').catch(function(err){ console.error(err); });
@@ -40,6 +41,8 @@
 
   <!-- 3. Display the application -->
   <body >
-    <emptystack-app>Loading...</emptystack-app>
+    <emptystack-app>
+      <div class="mdl-spinner mdl-js-spinner is-active" style="position:fixed; left:50%;top:50%"></div>
+    </emptystack-app>
   </body>
 </html>

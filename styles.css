@@ -9,6 +9,8 @@
   color: white;
 }*/
 
+/*From the Material Design Lite Templates section*/
+
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
   margin: 0;
@@ -16,6 +18,10 @@ html, body {
 }
 .mdl-demo .mdl-layout__header-row {
   padding-left: 40px;
+}
+
+.mdl-demo .mdl-layout__header-row-fake{
+  height: 50px;
 }
 .mdl-demo .mdl-layout.is-small-screen .mdl-layout__header-row h3 {
   font-size: inherit;
@@ -204,4 +210,14 @@ html, body {
 }
 .mdl-demo .mdl-menu__container {
   z-index: 99;
+}
+
+
+div.mdl-layout__tab-bar{
+  height: 50px;
+  width: 100%;
+}
+
+.router-link-active{
+  color: white;
 }

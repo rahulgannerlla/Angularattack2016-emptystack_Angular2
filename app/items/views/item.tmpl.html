@@ -11,9 +11,10 @@
     </a>
   </div>
 </div> -->
-<div class="center-div">
+<div class="center-div" *ngIf="item">
   <a href="{{item.productUrl}}"><img src="{{ item.image }}"></a>
   <h4>${{ item.price }}</h4>
-  <p>{{ item.description.substring(0,50) }}...<a href="{{item.productUrl}}">Read More</a></p>  
+  <p>{{ item.description.substring(0,30) }}...</p>  
+  <a href="{{item.productUrl}}">Read More</a>
 </div>
  

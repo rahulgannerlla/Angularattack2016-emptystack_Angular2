@@ -10,7 +10,13 @@ import { ItemsComponent } from './items.component';
 
 export class SearchItemsComponent {
 	searchWord: string = 'Hello There';
+
+	constructor() { }
+
 	search(text:string) {
 		console.log(text);
+
+
+		
 	}
 }

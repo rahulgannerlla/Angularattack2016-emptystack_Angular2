@@ -19,7 +19,6 @@ var Converter = (function () {
     Converter.prototype.convert = function (shop, jsonObject) {
         switch (shop) {
             case "walmart":
-                console.log("YAY Walmart");
                 return this.convert_walmart(jsonObject);
             default:
                 return [];
@@ -31,7 +30,7 @@ var Converter = (function () {
             console.log(jsonObject.items[i]);
             result.push({
                 price: jsonObject.items[i]['salePrice'],
-                description: jsonObject.items[i]['shortDescription'],
+                description: jsonObject.items[i]['name'],
                 image: jsonObject.items[i]['mediumImage'],
                 productUrl: jsonObject.items[i]['productUrl']
             });

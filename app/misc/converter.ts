@@ -10,12 +10,13 @@ export class Converter {
 	convert(shop:string, jsonObject:Object) {
 		switch (shop) {
 			case "walmart":
-				console.log("YAY Walmart");
 				return this.convert_walmart(jsonObject);
 			default:
 				return [];
 		}
 	}
+
+
 
 	convert_walmart(jsonObject){
 		var result = [];
@@ -26,7 +27,7 @@ export class Converter {
 			result.push(
 				{
 					price: jsonObject.items[i]['salePrice'],
-					description: jsonObject.items[i]['shortDescription'],
+					description: jsonObject.items[i]['name'],
 					image: jsonObject.items[i]['mediumImage'],
 					productUrl: jsonObject.items[i]['productUrl']
 				}

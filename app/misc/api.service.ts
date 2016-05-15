@@ -7,17 +7,27 @@ export class ApiService {
 	public reply;
 	constructor(private jsonp: Jsonp) { }
 
-	getData() {
-//?apiKey=kqumn8wgq6xp95kr6hy2q44q&query=ipod&numItems=5';
+	getData(shop: string, query: string, page: number) {
 
+		switch (shop) {
+			case "walmart":
+				return this.getWalmartData(query, page);
+			default:
+				break;
+		}
+	}
+
+	getWalmartData(query: string, page:number) {
 		let walmart = 'http://api.walmartlabs.com/v1/search';
 		var params = new URLSearchParams();
 		params.set('apiKey', 'kqumn8wgq6xp95kr6hy2q44q');
-		params.set('query', 'laptop');
+		params.set('query', query);
 		params.set('numItems', '5');
+		params.set('start', page.toString());
 		params.set('format', 'json');
 		params.set('callback', 'JSONP_CALLBACK');
 		// TODO: Add error handling
+		console.log(params);
 		return this.jsonp
 			.get(walmart, { search: params })
 			.map(request => request.json());

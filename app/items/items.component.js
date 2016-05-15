@@ -19,30 +19,30 @@ var ItemsComponent = (function () {
         this._converter = _converter;
         this.shopType = '';
         this.title = 'ssss';
+        this.pageNumber = 1;
     }
     ItemsComponent.prototype.ngOnInit = function () {
         this.shopType = this.shop;
         this.title = this.shopTitle;
-        this.getItems();
+        this.getItems('white bike', this.pageNumber);
     };
-    // getItems() {
-    // 	this._apiService.getResults('')
-    // 					.subscribe(
-    // 						items =>	{	
-    // 										console.log();
-    // 										this.items = this._converter.convert('walmart', items);
-    // 									},
-    // 						error => 	this.errorMessage = <any>error
-    // 					);
-    // }
-    ItemsComponent.prototype.getItems = function () {
+    ItemsComponent.prototype.getItems = function (query, page) {
         var _this = this;
-        this._apiService.getData()
+        console.log("Get new items From : ", this.shopType);
+        this._apiService.getData(this.shopType, query, page)
             .subscribe(function (data) {
-            // console.log("ITEMS");
-            console.log(data);
             _this.items = _this._converter.convert('walmart', data);
         }, function (error) { return console.log("ERROR"); }, function () { return console.log("DONE"); });
+    };
+    ItemsComponent.prototype.getNextItems = function () {
+        console.log("NEXT");
+        this.pageNumber += 5;
+        this.getItems('bike', this.pageNumber);
+    };
+    ItemsComponent.prototype.getPreviousItems = function () {
+        console.log("PREV");
+        this.pageNumber -= 5;
+        this.getItems('bike', this.pageNumber);
     };
     __decorate([
         core_1.Input(), 
@@ -52,6 +52,10 @@ var ItemsComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', String)
     ], ItemsComponent.prototype, "shopTitle", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], ItemsComponent.prototype, "query", void 0);
     ItemsComponent = __decorate([
         core_1.Component({
             selector: 'items-list',
