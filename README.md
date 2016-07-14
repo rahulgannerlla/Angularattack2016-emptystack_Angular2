@@ -56,7 +56,7 @@ Second module Directions:
 
 ![Keyword Frequency](/src/app//images/2.png)
 
-###  Credits [ Referenced websites, copied CSS, RestAPI ]
+###  Credits [ Referenced websites, CSS, RestAPI ]
 
 * (https://github.com/IanLunn/Hover) (for tile bounce in effect).
 * Sorting JS code from stackoverflow (Copyrights: Nosredna).
